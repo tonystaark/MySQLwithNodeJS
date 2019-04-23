@@ -1,9 +1,9 @@
-##INSTRUCTIONS FOR TESTING
+**INSTRUCTIONS FOR TESTING**
 1. `create DATABASE mock` at MYSQL server
 2. Please run `npm test` for unit testing. 
 3. You may change the `data` variable for testing purpose.
 
-##INSTRUCTIONS FOR DEVELOPMENT
+**INSTRUCTIONS FOR DEVELOPMENT**
 1. `create DATABASE registration` at MYSQL server
 2. Please run `npm start` for development.
 3. For registering students to a specified teachers, please use `POST api/register`.
