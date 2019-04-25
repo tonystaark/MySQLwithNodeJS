@@ -1,8 +1,8 @@
 //STORING MYSQL RELATED INFO
 
-let mysql = require("mysql");
+const mysql = require("mysql");
 let createDatabase, databaseName;
-let createTable =  `CREATE TABLE IF NOT EXISTS teachers (id int(11) AUTO_INCREMENT PRIMARY KEY, teacher VARCHAR(100), student VARCHAR(100), suspended BOOL NOT NULL DEFAULT 0);`
+const createTable =  `CREATE TABLE IF NOT EXISTS teachers (id int(11) AUTO_INCREMENT PRIMARY KEY, teacher VARCHAR(100), student VARCHAR(100), suspended BOOL NOT NULL DEFAULT 0);`
 
 if (process.env.NODE_ENV !== 'development'){
   createDatabase = 

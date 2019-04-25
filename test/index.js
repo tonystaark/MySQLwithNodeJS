@@ -1,7 +1,7 @@
 const test = require('tape-async');
 const sleep = require('sleep-promise');
-let request = require('supertest');
-let app = require('../app');
+const request = require('supertest');
+const app = require('../app');
 
 test('CREATE TABLE ', function (t) {
   connection.query("CREATE TABLE IF NOT EXISTS teachers (id int(11) AUTO_INCREMENT PRIMARY KEY, teacher VARCHAR(100), student VARCHAR(100), suspended BOOL NOT NULL DEFAULT 0);", function (err, result) {
@@ -11,7 +11,7 @@ test('CREATE TABLE ', function (t) {
 })
 
 test('register students under teacher Ken!', async function (t) {
-  let data = {
+  const data = {
     "teacher": "teacherken@example.com",
     "student": ["studentjon@example.com","studenthon@example.com","studentbob@example.com","commonstudent1@gmail.com","commonstudent2@gmail.com"]
   }
@@ -27,7 +27,7 @@ test('register students under teacher Ken!', async function (t) {
 
 
 test('register students under teacher Joe!', function (t) {
-  let data = {
+  const data = {
     "teacher": "teacherjoe@example.com",
     "student": ["studentmary@example.com","studentagnes@example.com","studentmiche@example.com","commonstudent1@gmail.com","commonstudent2@gmail.com"]
   }
@@ -42,7 +42,7 @@ test('register students under teacher Joe!', function (t) {
 });
 
 test('Retrieve a list of common students to teacher Ken', function (t) {
-  let data = {
+  const data = {
     "students":[
       "commonstudent1@gmail.com","commonstudent2@gmail.com","studentbob@example.com","studenthon@example.com","studentjon@example.com"
     ]
@@ -60,7 +60,7 @@ test('Retrieve a list of common students to teacher Ken', function (t) {
 });
 
 test('Retrieve a list of common students to a given list of teachers', function (t) {
-  let data = {
+  const data = {
     "students":[
       "commonstudent1@gmail.com","commonstudent2@gmail.com"
     ]
@@ -78,7 +78,7 @@ test('Retrieve a list of common students to a given list of teachers', function 
 });
 
 test('Suspend a student', function (t) {
-  let data = {"student":"studentmary@example.com"}
+  const data = {"student":"studentmary@example.com"}
   request(app)
     .post('/api/suspend')
     .send(data)

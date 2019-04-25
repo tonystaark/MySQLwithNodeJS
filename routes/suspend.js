@@ -1,16 +1,16 @@
-let express = require('express');
-let router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 router.post('/', function(req, res, next) {
-  let suspend = 
+  const suspend = 
   `
     UPDATE teachers SET Suspended = 1 WHERE student = ?
   `
 
   connection.query(suspend, [req.body.student], (err, result) => {
     result = JSON.parse(JSON.stringify(result))
-    let changed = result.changedRows
-    let warning = result.warningCount
+    const changed = result.changedRows
+    const warning = result.warningCount
 
     if (err) {
       res.status(500).json({"error":err, "response":null })

@@ -1,5 +1,5 @@
-let express = require('express');
-let router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 router.post('/', async function(req, res, next) {
 
@@ -10,7 +10,7 @@ router.post('/', async function(req, res, next) {
   }
   let studentNotRegistered = request.notification.split(" ").filter(e => e[0] === '@').map(e=>e.substring(1));
   if (studentNotRegistered.length < 1)studentNotRegistered = [""];
-  let notification = 
+  const notification = 
   `
     SELECT DISTINCT student FROM teachers WHERE suspended = 0 AND (teacher = ? OR student IN (?))
   `
@@ -21,7 +21,7 @@ router.post('/', async function(req, res, next) {
       throw err;
     } else {
       result = JSON.parse(JSON.stringify(result))
-      let array = result.map(res => res.student)
+      const array = result.map(res => res.student)
       res.json({"status": 200, "error":null, "response":{"recipients":array}})
     }
   })

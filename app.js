@@ -1,20 +1,20 @@
-// let createError = require('http-errors');
-let database = require('./database.js');
-let express = require('express');
-let path = require('path');
-let cookieParser = require('cookie-parser');
-let logger = require('morgan');
-let bodyParser = require('body-parser');
-let http = require('http');
+// const createError = require('http-errors');
+const database = require('./database.js');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
+const http = require('http');
 
-let registerRouter = require('./routes/register');
-let commonStudentsRouter = require('./routes/commonStudent');
-let suspendRouter = require('./routes/suspend');
-let notificationRouter = require('./routes/notification');
-let globalVar = require('./globalvar.js');
+const registerRouter = require('./routes/register');
+const commonStudentsRouter = require('./routes/commonStudent');
+const suspendRouter = require('./routes/suspend');
+const notificationRouter = require('./routes/notification');
+const globalVar = require('./globalvar.js');
 
-let app = express();
-let server = http.createServer(app);
+const app = express();
+const server = http.createServer(app);
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
