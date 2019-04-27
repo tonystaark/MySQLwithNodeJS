@@ -3,7 +3,7 @@ const router = express.Router();
 
 const register = router.post('/', function(req, res, next) {
 
-  const createTable = 
+  const createData = 
   `
     INSERT INTO teachers(teacher, student) VALUES ?;
     ALTER TABLE teachers ADD UNIQUE INDEX (teacher, student);
@@ -22,7 +22,7 @@ const register = router.post('/', function(req, res, next) {
     res.status(400).json({"error":"Not expecting both to be arrays", "response":null })
   }
 
-  connection.query(createTable, [insert], (err, result) => {
+  connection.query(createData, [insert], (err, result) => {
     if (err) {
       res.status(500).json({"error":err, "response":null })
       throw err;
