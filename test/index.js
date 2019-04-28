@@ -1,5 +1,4 @@
-const test = require('tape-async');
-const sleep = require('sleep-promise');
+const test = require('tape');
 const request = require('supertest');
 const app = require('../app');
 
@@ -10,7 +9,7 @@ test('CREATE TABLE ', function (t) {
   t.end()
 })
 
-test('register students under teacher Ken!', async function (t) {
+test('register students under teacher Ken!', function (t) {
   const data = {
     "teacher": "teacherken@example.com",
     "student": ["studentjon@example.com","studenthon@example.com","studentbob@example.com","commonstudent1@gmail.com","commonstudent2@gmail.com"]

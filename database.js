@@ -24,7 +24,7 @@ if (process.env.NODE_ENV !== 'development'){
 global.connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "123456",
+  password: "",
   multipleStatements: true,
   database: databaseName
 });
