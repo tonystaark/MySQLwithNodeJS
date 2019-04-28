@@ -4,7 +4,6 @@ const express = require('express');
 const path = require('path');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-const http = require('http');
 
 const registerRouter = require('./routes/register');
 const commonStudentsRouter = require('./routes/commonStudent');
@@ -13,7 +12,6 @@ const notificationRouter = require('./routes/notification');
 const globalVar = require('./globalvar.js');
 
 const app = express();
-const server = http.createServer(app);
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -29,9 +27,9 @@ app.use('/api/retrievefornotifications', notificationRouter);
 
 global.isEmptyObject = globalVar.isEmptyObject
 
-
+let port
 process.env.NODE_ENV !== 'development' ? port = 3001 : port = 4001;
-server.listen(port, function () {
+app.listen(port, function () {
   console.log('Server running on port %d', port);
 });
 
